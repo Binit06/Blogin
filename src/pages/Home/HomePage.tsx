@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { BlogResponse } from "../Blogs/BlogsPge";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "../../utils/constants";
 
 interface BlogComponentProps {
   imgUrl: string;
@@ -73,7 +74,7 @@ const Home = () => {
   const [data, setData] = useState<BlogResponse[] | null>(null);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:5000" + "/api/posts");
+      const result = await axios.get(BACKEND_URL + "api/posts");
       setData(result.data as BlogResponse[])
     }
     fetchData();
@@ -99,7 +100,7 @@ const Home = () => {
             author_name={data[0].authorName}
             read_time={data[0].ert + " read"}
             blog_title={data[0].title}
-            blog_content={data[0].content.slice(0, 460)}
+            blog_content={data[0].content.slice(0, 200)}
             blog_tags={data[0].genre}
           />
         </div>
@@ -109,7 +110,7 @@ const Home = () => {
         <button className="see_all_button" onClick={() => {navigate('/manage')}}>See All</button>
       </div>
       <div className="blogs_latest">
-        {data?.map((value) => (
+        {data?.slice(0, 4).map((value) => (
           <BlogContainer 
           imgUrl={value.imageUrl}
           avatarUrl="https://images.unsplash.com/photo-1534528741775-53994a69daeb"

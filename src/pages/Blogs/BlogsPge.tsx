@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios"
 import './Blogs.css';
 import { useNavigate } from 'react-router-dom';
+import { BACKEND_URL } from '../../utils/constants';
 
 interface BlogProps {
   id: string;
@@ -43,7 +44,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000" + "/api/posts")
+        const response = await axios.get(BACKEND_URL + "api/posts")
         setData(response.data as BlogResponse[]);
       } catch (error) {
         console.log(error)

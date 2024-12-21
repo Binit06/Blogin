@@ -6,6 +6,7 @@ import WriteHere from "../../../components/create/WriteHere";
 import PreviewPage from "../../../components/create/PreviewPage";
 import "./BlogEditPage.css";
 import { BlogResponse } from "../BlogsPge";
+import { BACKEND_URL } from "../../../utils/constants";
 
 interface GenerateResponse {
   content: string;
@@ -47,11 +48,11 @@ const Create = () => {
       };
 
       if (id) {
-        const response = await axios.put(`http://localhost:5000/api/posts/${id}`, payload);
+        const response = await axios.put(BACKEND_URL + `api/posts/${id}`, payload);
         setRequestSend("Article updated successfully");
         console.log(response);
       } else {
-        const response = await axios.post("http://localhost:5000/api/posts", payload);
+        const response = await axios.post(BACKEND_URL + "api/posts", payload);
         setRequestSend("Article submitted successfully");
         console.log(response);
       }
@@ -108,7 +109,7 @@ const Create = () => {
 
     setIsGenerating(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/ai/generate", {
+      const response = await axios.post(BACKEND_URL + "api/ai/generate", {
         title: value.title,
       });
       const data = response.data as GenerateResponse;
@@ -129,7 +130,7 @@ const Create = () => {
     const fetchData = async () => {
       try {
         if (id) {
-          const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
+          const response = await axios.get(BACKEND_URL + `api/posts/${id}`);
           const data = response.data as BlogResponse;
           value.title = data.title;
           value.genre = data.genre;

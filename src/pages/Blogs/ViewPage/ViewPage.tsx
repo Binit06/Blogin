@@ -3,6 +3,7 @@ import './ViewPage.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { BlogResponse } from '../BlogsPge';
+import { BACKEND_URL } from '../../../utils/constants';
 
 interface GeneratedResponse {
   summary: string;
@@ -16,7 +17,7 @@ const ViewPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000" + "/api/posts/" + id);
+        const response = await axios.get(BACKEND_URL + "api/posts/" + id);
         setData(response.data as BlogResponse);
       } catch (error) {
         console.log("Response error: ", error);
@@ -31,7 +32,7 @@ const ViewPage: React.FC = () => {
     setIsSummarizing(true);
     setSummary(null);
     try {
-      const response = await axios.post("http://localhost:5000/api/ai/summarise", {
+      const response = await axios.post(BACKEND_URL + "api/ai/summarise", {
         article: data.content,
       });
       const data_new = response.data as GeneratedResponse;
