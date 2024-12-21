@@ -1,0 +1,12 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.ql-container {
+  width: 100% !important;
+}
+
+.ql-toolbar {
+  background-color: white !important;
+}

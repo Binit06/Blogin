@@ -1,0 +1,118 @@
+.guidelines-notice {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #212121;
+  padding: 16px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.discard-button {
+  position: absolute;
+  top: 20px;  /* Adjust the distance from the top */
+  right: 20px; /* Adjust the distance from the right */
+  background: transparent;
+  border: none;
+  font-size: 30px; /* Size of the close icon */
+  color: #ff4d4f; /* Red color for discard */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.discard-button:hover {
+  color: #f5222d; /* Darker red when hovered */
+}
+
+.progress-bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  background-color: #f9f9f9;
+  border: 1px solid #d3ddeb;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.step {
+  width: 33.33%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #212121;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step.active {
+  background-color: #fff;
+}
+
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background-color: #212121;
+  transition: width 0.3s ease;
+}
+
+.navigation {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
+
+.nav-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #212121;
+  height: 100%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-button:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.nav-button.next {
+  background-color: #4caf50;
+}
+
+.nav-button.publish {
+  background-color: #2196f3;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+

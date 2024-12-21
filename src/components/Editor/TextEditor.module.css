@@ -1,0 +1,47 @@
+.editorContainer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 2.5rem;
+  color: black;
+  background-color: white;
+}
+
+.editorWrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  background-color: white;
+}
+
+.editor {
+  height: 65vh;
+  max-height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .editorWrapper {
+    gap: 1.5rem;
+  }
+
+  .editor {
+    margin-bottom: 5%;
+    width: 90vw;
+  }
+}
+
+@media (max-width: 320px) {
+  .editorWrapper {
+    gap: 4rem;
+  }
+}
+

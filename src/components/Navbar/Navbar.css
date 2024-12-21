@@ -1,0 +1,95 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Global Font */
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 32px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.vertical-line {
+  height: 17px;
+  border: 1px solid gray;
+  margin-left: 25px;
+}
+
+/* Left Section */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;  /* Increased font size */
+  font-weight: bold;
+  color: red;
+}
+
+.logo-icon {
+  font-size: 1.75rem; /* Increased font size */
+  margin-right: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  margin-left: 32px;
+}
+
+.nav-link {
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: #555;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: 1s all linear;
+}
+
+.nav-link.active {
+  color: #000;
+  font-weight: 500;
+  opacity: 1;
+}
+
+.navbar-write {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+}
+
+/* Right Section */
+.navbar-right {
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  padding: 7px 7px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-solid {
+  background-color: white;
+  color: #000;
+  border: none;
+}
+

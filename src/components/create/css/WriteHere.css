@@ -1,0 +1,38 @@
+.write-here-container {
+  display: flex;
+  width: 90%;
+  max-width: 1440px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  border-radius: 1rem;
+  padding-top: 1rem;
+}
+
+.write-here-title {
+  margin-left: 0;
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #212121;
+}
+
+.write-here-editor-container {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #212121;
+}
+
+.error-text {
+  padding-left: 0.25rem;
+  padding-top: 0.375rem;
+  font-size: 0.875rem;
+  color: #f44336; /* Red color for error */
+}
+
