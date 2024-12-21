@@ -6,12 +6,16 @@ interface BasicInformationProps {
     name: string;
     email: string;
     title: string;
+    genre: string;
+    imgUrl: string;
   };
   setValue: (value: BasicInformationProps['value']) => void;
   errors: {
     name?: string;
     email?: string;
     title?: string;
+    genre?: string;
+    imgUrl?: string;
   };
 }
 
@@ -66,6 +70,30 @@ const BasicInformation: React.FC<BasicInformationProps> = ({
               required
             />
             {errors.title && <p className="error-text">{errors.title}</p>}
+          </div>
+          <div className="input-group">
+            <label>Genre</label>
+            <input
+              type="text"
+              name="genre"
+              placeholder="Blog Genre"
+              value={value.genre}
+              onChange={handleChange}
+              required
+            />
+            {errors.genre && <p className="error-text">{errors.genre}</p>}
+          </div>
+          <div className="input-group">
+            <label>Image URL</label>
+            <input
+              type="text"
+              name="imgUrl"
+              placeholder="Blog Image Url"
+              value={value.imgUrl}
+              onChange={handleChange}
+              required
+            />
+            {errors.imgUrl && <p className="error-text">{errors.imgUrl}</p>}
           </div>
         </div>
       </div>

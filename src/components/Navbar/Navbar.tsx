@@ -4,7 +4,7 @@ import { LuPen } from "react-icons/lu";
 import "./Navbar.css";
 
 const Navbar: React.FC = () => {
-  const id = useParams();
+  const { id } = useParams();
   const location = useLocation();
   const isBlogViewPage = location.pathname.startsWith('/blog/')
   const navigate = useNavigate();
@@ -40,7 +40,9 @@ const Navbar: React.FC = () => {
               Manage
             </NavLink>
             <NavLink
-              to="/github"
+              to="https://github.com/Binit06/Blogin"
+              target="_blank"
+              rel="noopener noreferrer"
               className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
             >
               GitHub

@@ -296,6 +296,12 @@ body {
   font-size: 14px;
   color: #666;
   margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
+  min-height: calc(1.5em * 3);
 }
 
 .publisher_details_small {

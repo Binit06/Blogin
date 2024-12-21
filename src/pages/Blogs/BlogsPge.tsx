@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react';
+import axios from "axios"
 import './Blogs.css';
+import { useNavigate } from 'react-router-dom';
 
 interface BlogProps {
   id: string;
@@ -7,9 +10,23 @@ interface BlogProps {
   description: string;
   ert: string;
 }
+
+export interface BlogResponse {
+  _id: string;
+  authorEmail: string;
+  authorName: string;
+  content: string;
+  createdAt: string;
+  ert: string;
+  genre: string;
+  imageUrl: string;
+  title: string;
+}
+
 const BlogsManageComponent: React.FC<BlogProps> = ({ genere, title, description, ert, id }) => {
+  const navigate = useNavigate();
   const handleClick = () => {
-    console.log(id);
+    navigate("/blog/" + id)
   }
   return (
     <div className="blog_manage_container">
@@ -22,6 +39,18 @@ const BlogsManageComponent: React.FC<BlogProps> = ({ genere, title, description,
 }
 
 const Blogs = () => {
+  const [data, setData] = useState<BlogResponse[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000" + "/api/posts")
+        setData(response.data as BlogResponse[]);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData();
+  }, [])
   return (
     <div className="blog_main">
       <div className="title_container">
@@ -31,13 +60,13 @@ const Blogs = () => {
         <div className="title_metadata">
           <div className="date">{"This week"}</div>
           <div>.</div>
-          <div className="stories">{"3 stories"}</div>
+          <div className="stories">{data.length + " stories"}</div>
         </div>
       </div>
       <div className="blog_main_container">
-        <BlogsManageComponent genere="Ethics" title="Unethical Design of Cookie Windows" description="All the sites we visit today contains tradcker called cookies. These cookies always track our internet footprint and coolect data about us..." ert="6 min" id='1' />
-        <BlogsManageComponent genere="Ethics" title="Unethical Design of Cookie Windows" description="I will write it later" ert="6 min" id='2' />
-        <BlogsManageComponent genere="Ethics" title="Unethical Design of Cookie Windows" description="I will write it later" ert="6 min" id='3' />
+        {data.map((value: BlogResponse) => (
+          <BlogsManageComponent key={value._id} id={value._id} genere={value.genre} title={value.title} description={value.content} ert={value.ert} />
+        ))}
       </div>
     </div>
   );
