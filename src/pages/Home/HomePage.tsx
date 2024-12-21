@@ -1,5 +1,5 @@
 import "./HomeStyles.css";
-import Image from "../../components/Image/Image"
+import Image from "../../components/Image/Image";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BlogResponse } from "../Blogs/BlogsPge";
@@ -39,8 +39,8 @@ const BlogComponent: React.FC<BlogComponentProps> = ({
         <div className="blog_tags">{blog_tags}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const BlogContainer: React.FC<BlogComponentProps> = ({
   imgUrl,
@@ -68,17 +68,25 @@ const BlogContainer: React.FC<BlogComponentProps> = ({
   );
 };
 
-
 const Home = () => {
   const navigate = useNavigate();
   const [data, setData] = useState<BlogResponse[] | null>(null);
+  const [loading, setLoading] = useState(true); // Loading state
+
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get(BACKEND_URL + "api/posts");
-      setData(result.data as BlogResponse[])
-    }
+      try {
+        const result = await axios.get(BACKEND_URL + "api/posts");
+        setData(result.data as BlogResponse[]);
+        setLoading(false); // Set loading to false once data is fetched
+      } catch (error) {
+        setLoading(false); // Set loading to false in case of an error
+        console.error("Error fetching data:", error);
+      }
+    };
     fetchData();
-}, [])
+  }, []);
+
   return (
     <div className="home-container">
       <div className="intro-container">
@@ -90,35 +98,45 @@ const Home = () => {
           <span className="special-effect">knowledge</span> 📕, and <span className="special-effect">entertainment</span> 🎬
         </div>
       </div>
-      {data && (
-        <div className="featured-blog-section">
-          <div className="blog-title">Featured Blog</div>
-          <div className="sub-blog-title">Dive into our latest story</div>
-          <BlogComponent
-            imgUrl={data[0].imageUrl}
-            avatarUrl="https://images.unsplash.com/photo-1534528741775-53994a69daeb"
-            author_name={data[0].authorName}
-            read_time={data[0].ert + " read"}
-            blog_title={data[0].title}
-            blog_content={data[0].content.slice(0, 200)}
-            blog_tags={data[0].genre}
-          />
+
+      {loading ? (
+        <div className="loading-container">
+          <p>Waiting for backend...</p>
         </div>
+      ) : (
+        data && (
+          <div className="featured-blog-section">
+            <div className="blog-title">Featured Blog</div>
+            <div className="sub-blog-title">Dive into our latest story</div>
+            <BlogComponent
+              imgUrl={data[0].imageUrl}
+              avatarUrl="https://images.unsplash.com/photo-1534528741775-53994a69daeb"
+              author_name={data[0].authorName}
+              read_time={data[0].ert + " read"}
+              blog_title={data[0].title}
+              blog_content={data[0].content.slice(0, 200)}
+              blog_tags={data[0].genre}
+            />
+          </div>
+        )
       )}
+
       <div className="latest_blog_container">
         <div className="latest_blog_title">Latest Blog</div>
         <button className="see_all_button" onClick={() => {navigate('/manage')}}>See All</button>
       </div>
+
       <div className="blogs_latest">
         {data?.slice(0, 4).map((value) => (
           <BlogContainer 
-          imgUrl={value.imageUrl}
-          avatarUrl="https://images.unsplash.com/photo-1534528741775-53994a69daeb"
-          author_name={value.authorName}
-          read_time={value.ert + " read"}
-          blog_title={value.title}
-          blog_content={value.content}
-          blog_tags={value.genre}
+            key={value._id}
+            imgUrl={value.imageUrl}
+            avatarUrl="https://images.unsplash.com/photo-1534528741775-53994a69daeb"
+            author_name={value.authorName}
+            read_time={value.ert + " read"}
+            blog_title={value.title}
+            blog_content={value.content}
+            blog_tags={value.genre}
           />
         ))}
       </div>
@@ -127,4 +145,3 @@ const Home = () => {
 };
 
 export default Home;
-
