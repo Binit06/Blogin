@@ -32,33 +32,33 @@
   margin-top: 30px;
 }
 
-.blog_container {
+.blog_manage_container {
   display: flex;
   flex-direction: column;
   gap: 0px;
 }
 
-.blog_genere {
+.blog__manage_genere {
   font-weight: 400;
   opacity: 0.5;
 }
 
-.blog_title {
+.blog_manage_title {
   font-size: 1.5rem;
   font-weight: 300;
   cursor: pointer;
 }
 
-.blog_title:hover {
+.blog_manage_title:hover {
   text-decoration: underline;
 }
 
-.blog_description {
+.blog_manage_description {
   font-size: 1rem;
   opacity: 0.85;
 }
 
-.blog_ert {
+.blog_manage_ert {
   font-weight: 400;
   font-size: 0.8rem;
   opacity: 0.5;

@@ -7,16 +7,16 @@ interface BlogProps {
   description: string;
   ert: string;
 }
-const BlogsComponent: React.FC<BlogProps> = ({ genere, title, description, ert, id }) => {
+const BlogsManageComponent: React.FC<BlogProps> = ({ genere, title, description, ert, id }) => {
   const handleClick = () => {
     console.log(id);
   }
   return (
-    <div className="blog_container">
-      <div className="blog_genere">{genere}</div>
-      <div className="blog_title" onClick={handleClick}>{title}</div>
-      <div className="blog_description">{description}</div>
-      <div className="blog_ert">{ert}</div>
+    <div className="blog_manage_container">
+      <div className="blog_manage_genere">{genere}</div>
+      <div className="blog_manage_title" onClick={handleClick}>{title}</div>
+      <div className="blog_manage_description">{description}</div>
+      <div className="blog_manage_ert">{ert}</div>
     </div>
   )
 }
@@ -35,9 +35,9 @@ const Blogs = () => {
         </div>
       </div>
       <div className="blog_main_container">
-        <BlogsComponent genere="Ethics" title="Unethical Design of Cookie Windows" description="All the sites we visit today contains tradcker called cookies. These cookies always track our internet footprint and coolect data about us..." ert="6 min" id='1' />
-        <BlogsComponent genere="Ethics" title="Unethical Design of Cookie Windows" description="I will write it later" ert="6 min" id='2' />
-        <BlogsComponent genere="Ethics" title="Unethical Design of Cookie Windows" description="I will write it later" ert="6 min" id='3' />
+        <BlogsManageComponent genere="Ethics" title="Unethical Design of Cookie Windows" description="All the sites we visit today contains tradcker called cookies. These cookies always track our internet footprint and coolect data about us..." ert="6 min" id='1' />
+        <BlogsManageComponent genere="Ethics" title="Unethical Design of Cookie Windows" description="I will write it later" ert="6 min" id='2' />
+        <BlogsManageComponent genere="Ethics" title="Unethical Design of Cookie Windows" description="I will write it later" ert="6 min" id='3' />
       </div>
     </div>
   );

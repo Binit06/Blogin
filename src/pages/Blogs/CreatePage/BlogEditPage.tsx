@@ -24,6 +24,7 @@ const Create = () => {
   console.log(requestSend, isSubmitted)
   const publishPost = async () => {
     setIsLoading(true);
+    console.log(article);
     try {
       const response = await axios.post("https://localhost:3000" + "/blogs", {
         title: value.title,

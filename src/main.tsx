@@ -15,7 +15,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
           <Route path="manage" element={<Blogs />} />
-          <Route path="manage/blog/edit" element={<Create />} />
+          <Route path="manage/blog/new" element={<Create />} />
+          <Route path="manage/blog/update/:id" element={<Create />} />
           <Route path="/blog/:id" element={<ViewPage />} />
         </Route>
       </Routes>

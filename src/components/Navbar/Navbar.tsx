@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import { LuPen } from "react-icons/lu";
 import "./Navbar.css";
 
@@ -7,6 +7,15 @@ const Navbar: React.FC = () => {
   const id = useParams();
   const location = useLocation();
   const isBlogViewPage = location.pathname.startsWith('/blog/')
+  const navigate = useNavigate();
+
+  const handleBlogCreateClick = () => {
+    navigate('/manage/blog/new');
+  }
+
+  const handleBlogUpdateClick = () => {
+    navigate(`/manage/blog/update/${id}`)
+  }
   return (
     <>
       <nav className="navbar">
@@ -41,12 +50,12 @@ const Navbar: React.FC = () => {
 
         <div className="navbar-right">
           {isBlogViewPage && id ? (
-            <div className="navbar-write">
+            <div className="navbar-write" onClick={handleBlogUpdateClick}>
               <LuPen size={15} />
               <button className="btn btn-solid">Update</button>
             </div>
           ) : (
-            <div className="navbar-write">
+            <div className="navbar-write" onClick={handleBlogCreateClick}>
               <LuPen size={15} />
               <button className="btn btn-solid">Write</button>
             </div>
