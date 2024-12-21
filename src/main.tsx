@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/HomePage";
 import Blogs from "./pages/Blogs/BlogsPge";
-import Profile from "./pages/Profile/PrfilePage";
+import ViewPage from "./pages/Blogs/ViewPage/ViewPage";
 import Create from "./pages/Blogs/CreatePage/BlogEditPage";
 import "./index.css"
 
@@ -16,7 +16,7 @@ createRoot(document.getElementById("root")!).render(
           <Route index element={<Home />} />
           <Route path="manage" element={<Blogs />} />
           <Route path="manage/blog/edit" element={<Create />} />
-          <Route path="profile/:id" element={<Profile />} />
+          <Route path="/blog/:id" element={<ViewPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

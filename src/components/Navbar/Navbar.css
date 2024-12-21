@@ -92,3 +92,7 @@
   border: none;
 }
 
+.outlet {
+  display: flex;
+  justify-content: center;
+}

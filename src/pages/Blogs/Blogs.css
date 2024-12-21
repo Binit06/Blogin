@@ -1,104 +1,65 @@
-/* General page container */
-.blogs-container {
-  background-color: #f0f0f0;
-  color: #333;
-  padding: 40px;
-  font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
-}
-
-.page-title {
-  text-align: center;
-  font-weight: 600;
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-.blogs-list {
+.blog_main {
+  width: 90%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  padding-top: 10px;
 }
-
-.blog-card {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
+.title_container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 }
 
-.blog-title {
-  font-size: 1.5rem;
+.title {
+  font-size: 2rem;
+  color: black;
   font-weight: 600;
-  margin-bottom: 10px;
-  color: #333;
 }
 
-.blog-date {
-  font-size: 0.875rem;
-  color: #666;
-}
-
-.blog-content {
-  margin-top: 10px;
+.title_metadata {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
   font-size: 1rem;
-  line-height: 1.6;
-  color: #555;
-}
-
-.button-group {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.action-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
-  font-size: 0.875rem;
+  margin-left: 2px;
+  color: red;
   font-weight: 500;
-  border: none;
-  border-radius: 4px;
+}
+
+.blog_main_container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.blog_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.blog_genere {
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+.blog_title {
+  font-size: 1.5rem;
+  font-weight: 300;
   cursor: pointer;
-  background-color: #e0e0e0;
-  color: #333;
-  transition: background-color 0.3s ease;
 }
 
-.action-btn:hover {
-  background-color: #ccc;
+.blog_title:hover {
+  text-decoration: underline;
 }
 
-.edit-btn {
-  background-color: #a5d6a7;
+.blog_description {
+  font-size: 1rem;
+  opacity: 0.85;
 }
 
-.delete-btn {
-  background-color: #ef5350;
+.blog_ert {
+  font-weight: 400;
+  font-size: 0.8rem;
+  opacity: 0.5;
 }
-
-.archive-btn {
-  background-color: #ffeb3b;
-}
-
-.edit-btn:hover {
-  background-color: #81c784;
-}
-
-.delete-btn:hover {
-  background-color: #e57373;
-}
-
-.archive-btn:hover {
-  background-color: #ffee58;
-}
-

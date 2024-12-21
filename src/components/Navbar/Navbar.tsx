@@ -1,9 +1,12 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { LuPen } from "react-icons/lu";
 import "./Navbar.css";
 
 const Navbar: React.FC = () => {
+  const id = useParams();
+  const location = useLocation();
+  const isBlogViewPage = location.pathname.startsWith('/blog/')
   return (
     <>
       <nav className="navbar">
@@ -36,15 +39,21 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Section - Buttons */}
         <div className="navbar-right">
-          <div className="navbar-write">
-            <LuPen size={15} />
-            <button className="btn btn-solid">Write</button>
-          </div>
+          {isBlogViewPage && id ? (
+            <div className="navbar-write">
+              <LuPen size={15} />
+              <button className="btn btn-solid">Update</button>
+            </div>
+          ) : (
+            <div className="navbar-write">
+              <LuPen size={15} />
+              <button className="btn btn-solid">Write</button>
+            </div>
+          )}
         </div>
       </nav>
-      <div>
+      <div className="outlet">
         <Outlet />
       </div>
     </>
